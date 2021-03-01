@@ -1,3 +1,4 @@
+# Linux Notes
 
 Keyboard shortcuts
     ctl-A   beginning of line
@@ -31,3 +32,22 @@ Quickly create folders
 
 Intercept stdout and log to a file
     cat cosmo.txt | tee -a log.txt | cat > /dev/nul
+
+Exit a terminal but leave all processes running
+    disown -a && exit
+
+Jobs
+    sleep 120 &
+    jobs
+    fg
+    bg
+    kill %1
+
+Processes
+    sleep 120 &
+    killall sleep
+
+
+    sleep 120 &
+    ps
+
