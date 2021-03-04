@@ -21,9 +21,10 @@ Create a super fast ram disk
     mkdir -p /mnt/ram
     mount -t tmpfs tempfs /mnt/ram -o size=8192M
 
-Execute a command that is not in the history
+History
 
-    Precede the command with a space
+    Precede the command with a space and it won't be stored in the history
+    CTRL-R command  <-- search history for last command usage
 
 Open last command in editor
 
@@ -58,3 +59,13 @@ Processes
 
     sleep 120 &
     killall sleep
+
+Directories
+
+    cd ~   <-- home directory
+    cd -   <-- last directory
+    
+Log file tools (works on .gz files)
+  
+     zcat, zgrep, zless, zdiff
+    
