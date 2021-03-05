@@ -24,7 +24,10 @@ Create a super fast ram disk
 History
 
     Precede the command with a space and it won't be stored in the history
+    
     CTRL-R command  <-- search history for last command usage
+    
+    export HISTTIMEFORMAT="%d/%m/%y %T "  <-- timestamp history file
 
 Open last command in editor
 
@@ -67,5 +70,23 @@ Directories
     
 Log file tools (works on .gz files)
   
-     zcat, zgrep, zless, zdiff
+    zcat, zgrep, zless, zdiff
     
+Detect if a command modified a file
+
+    D="$(date "+%F %T.%N")"; sleep 0.5; <command>; find . -newermt "$D"
+    
+Remove a file and make it unrecoverable
+
+    shred -n 100 -z -u filename
+    
+Finding
+    
+    function fnd {
+        find "$1" -name "$2" 2>&1 | grep -v "Permission denied" | grep -v "Operation not permitted" | grep -v "No such file or directory" | grep -v "Not a directory"
+    }
+    
+    time fnd / george.txt
+    
+    
+
